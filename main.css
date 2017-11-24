@@ -1,0 +1,12 @@
+#header{
+	height: 30px;
+}
+
+#main{
+	margin-left: 100px;
+}
+
+#canv {
+	border: thin solid black;
+	cursor: pointer;
+}
