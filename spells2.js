@@ -1,3 +1,6 @@
+//part2
+
+//peaceful totem, makes everyone inside of area to sleep
 function SwiftWindClick(button){
 	setListener(function(e){
 	PlaceWindTotem(e, button)
@@ -67,3 +70,4 @@ function SwiftWindTotem(x, y){
 			this.lifetime--;						
 	}
 }
+//TODO: last six spells
