@@ -25,6 +25,7 @@ function poisonTest(owner){
 		}
 }
 //Poisoned minion))
+//Maybe I should use basic class for enemies?..
 function PoisonTest(xx, yy, tar){
 	this.hp = 200;
 	this.damage = 0;
