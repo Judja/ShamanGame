@@ -5,6 +5,7 @@ var ctx = canv.getContext( '2d' );
 var sx = canv.getBoundingClientRect().left;
 var sy = canv.getBoundingClientRect().top;
 
+//Global variables
 var fps = 50;
 var timer;
 var fwtimer;
@@ -15,6 +16,7 @@ var UpgradePoints;
 var Stage;
 var cStage;
 
+//character stats
 var LightningPower;
 var EarthPower;
 var FirePower;
@@ -23,6 +25,7 @@ var WaterPower;
 var CDMode;
 var CDK;
 
+//more global things
 var shaman = new Player();
 var lightning = new Lightning();
 var lightningCD = 0;
@@ -67,6 +70,7 @@ function startWindow(){
 	ctx.fillText("Кликните, чтобы начать новую игру", 200, 250);
 	setListener(startGame);
 }
+//initing and starting game
 function startGame(){	
  shaman = new Player();
  lightning = new Lightning();
@@ -91,6 +95,7 @@ function startGame(){
  UpgradePoints = 3;
  SpellScreen();
 }
+//game, repeats in main loop
 function Game(){
 if(shaman.hp==0) finishGame();
 
@@ -150,7 +155,7 @@ function drawGame( ){
 	ctx.fillText("FPS: "+FPS, 0, 20)
 	LastFrame = Date.now()
 }
-//drawStatus - эта функция что-то делает
+//drawStatus - draws our hp, mp, fps, etc
 function drawStatus(){
 if(shaman.hp<0) shaman.hp = 0;
 if(shaman.mp<0) shaman.mp = 0;
@@ -182,6 +187,7 @@ function setListener(newListener){
 }
 //SPELLS
 var LastClick=Date.now();
+//lightningClick - it is our shooting ability
 function LightningClickSingle(e){
 	var cx = e.pageX-sx;
 	var cy = e.pageY-sy;
@@ -208,6 +214,7 @@ LastClick = Date.now();
 }
 LightningClick = LightningClickSingle;	
 //BUTTON
+//buttons, clickable/use keyboard
 function Button(func, col, cd, mc){
 	this.color = col;
 	this.action = func;
@@ -321,6 +328,8 @@ function pressKey(e){
 	}
 }
 //ScreenEffects
+//add red bounding rect, when enemies hit you
+//greater hits causes greater rects)) working pretty nice
 function Attacked(dmg){
 	this.lifetime = fps*0.1
 	this.draw = function(){
