@@ -1,3 +1,6 @@
+//not finished
+//I decided to create enemies, which can use opoison and other debuffs
+//So, it is basic Debuff Class
 function Debuff(tar, lt, act, col){
 	this.lifetime  =  lt*fps;
 	this.frame = 1;
@@ -15,12 +18,13 @@ function Debuff(tar, lt, act, col){
 		}
 	} else {this.draw = function(){}}
 }
+//It is poison))
 function poisonTest(owner){
 	if(owner.frame%fps==0){
 		shaman.hp-=20;
 		}
 }
-
+//Poisoned minion))
 function PoisonTest(xx, yy, tar){
 	this.hp = 200;
 	this.damage = 0;
