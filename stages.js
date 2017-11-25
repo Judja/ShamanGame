@@ -1,3 +1,6 @@
+//I rewrote this part of game, adding ability to form different levels with different enemylists
+//and "BossFights, where you need to defeat One enemy (it just generates one enemy and immediately stops wave generation)
+//this part is working, but not finished yet
 var Stages = [];
 
 function TestStage(){
