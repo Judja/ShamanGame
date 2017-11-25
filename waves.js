@@ -1,3 +1,6 @@
+//Here is wave generating function, and two screens
+//SpellScreen allows to choose one new Spell before every vawe
+//ChoosebuffScreen - spending upgrade points, your ingame stats - everytjong is here
 var genChance;
 var wave;
 var ind;
