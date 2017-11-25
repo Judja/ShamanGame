@@ -1,3 +1,9 @@
+//First part of different spells
+
+//lightning is created when we shoot enemy (click)
+//but thats not true)))
+//due to game mechanic (lol, i just added cd for shooting, cause shooting too often is imbalance) only one Lightning will be drawn at the same moment
+//So we create one lightblue lightning at the start of the game and set its position, lifetime, etc, to draw, when needed
 function Lightning(xs, ys, xf, yf, c, dm){
 var lenX = xf-xs;
 var lenY = yf-ys;
@@ -44,6 +50,7 @@ this.draw = function(){
 		iter.end = true;
 		}, 150);
 }
+//makes Chained Lightning, it can beat one enemy once
 function LightningJump(n, t, ld, lr, jx, jy, c){
 var L = this;
 L.beated.push(t);
@@ -66,6 +73,7 @@ L.beated.push(t);
 	}
 }
 //ManaBurst
+//explosion, uses all your mana, damage depends on spent mana, hits player too
 function ManaBurst(mpd){
 	this.damage = mpd;
 	this.lifetime = fps*0.3;
@@ -99,6 +107,8 @@ function ManaBurstClick(button){
 	button.pressed = false;
 }
 //StoneSkin
+//StoneSkin - adds damage resistance
+//also can hit enemies with stoneSpikes
 function StoneSkin(){
 	this.end = false;
 	this.lifetime = fps*(3+(EarthPower-1)*5);
@@ -142,7 +152,7 @@ function StoneSkinClick(button){
 	button.pressed = false;
 	button.curCD = button.maxCD;
 }
-//
+//Spikes are drawn as triangles
 function Triangle(x, y, xx, yy, r, c, s){
 	var lenx = xx-x;
 	var leny = yy-y;
@@ -165,7 +175,9 @@ function Triangle(x, y, xx, yy, r, c, s){
 	ctx.fillStyle = c || "black";
 	ctx.fill();
 }
-// FireMeteor
+// FireMeteor 
+//explosion, cause enemies fire
+//fired enemies can fall into panic
 function FireMeteor(cx, cy, sx, sy){
 	this.x = sx || 400;
 	this.y = sy || 465;
@@ -300,6 +312,8 @@ function FireMeteorShoot(e, button){
 	}
 }
 //FreezeWave
+//slows down all enemies inside of freezing erea
+//they cen be then shocked
 function FreezeWaveClick(button){
 	Spells.push(new FreezeWave());
 	shaman.mp-=button.manacost;
@@ -369,6 +383,9 @@ function Freeze(obj){
 	}
 }
 //StormWraith
+//totem, changes your shooting ability for better one, MULTISTRIKING BLUE LIGHTNING
+//with high lightning power looks epic
+//Every MULTOSTRIKING rge up
 var LightningClick;
 function StormWraithClick(button){
 	setListener(function(e){
@@ -488,6 +505,7 @@ LastClick = Date.now();
 	}
 }
 //Controll
+//Implementic of Panic, Sleep and Shock debuffs
 function Panic(obj){
 	this.object = obj;
 	this.lifetime = 5*fps;
