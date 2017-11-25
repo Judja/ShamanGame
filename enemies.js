@@ -1,3 +1,5 @@
+//different enemy types
+//it could be shorter, but firstly i was going to use only one enemy type, so I didn't create smt like a basic class
 function Goblin(xx, yy, tar){
 	this.hp = 200;
 	this.damage = 30;
@@ -46,6 +48,7 @@ function Goblin(xx, yy, tar){
 	this.retarget(tar);
 }
 //--------
+//when they die, they spawn two little golems
 function StoneGolem(xx, yy, tar){
 	this.hp = 800;
 	this.damage = 300;
@@ -149,6 +152,7 @@ function LittleStoneGolem(xx, yy, tar){
 
 
 //////////////////////////////////////
+//Methods, common for enemyTypes
 function MeleeAttack(){
 var Delay = this.delay;
 		if(this.strikeReady){
